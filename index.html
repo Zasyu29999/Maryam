@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Zamba ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fondo de estrellas */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Flores decorativas */
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .flower:nth-child(1) {
+            top: 5%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .flower:nth-child(2) {
+            top: 10%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+        .flower:nth-child(3) {
+            bottom: 10%;
+            left: 12%;
+            animation-delay: 4s;
+        }
+
+        .flower:nth-child(4) {
+            bottom: 15%;
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        .flower:nth-child(5) {
+            top: 70%;
+            left: 2%;
+            animation-delay: 3s;
+        }
+
+        .flower:nth-child(6) {
+            top: 75%;
+            right: 3%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        .title {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+            z-index: 15;
+            position: relative;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.3); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.6); }
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 300px;
+            z-index: 20;
+        }
+
+        .login-form h2 {
+            color: #e74c3c;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(231, 76, 60, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-group input:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+            background: rgba(255, 255, 255, 0.95);
+            transform: scale(1.02);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(231, 76, 60, 0.7);
+            font-style: italic;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.5);
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Lluvia de corazones */
+        .heart-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #e74c3c;
+            animation: fallDown 3s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Overlay para transición */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(231, 76, 60, 0.9);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .success-message {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Página de la carta */
+        .love-letter-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 20000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .letter-page-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+            z-index: 25;
+            position: relative;
+            text-align: center;
+        }
+
+        .interactive-heart {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            animation: heartPulse 2s ease-in-out infinite;
+            z-index: 15;
+        }
+
+        .interactive-heart:hover {
+            transform: scale(1.1);
+        }
+
+        .heart-image {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #ff6b9d, #e74c3c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            filter: drop-shadow(0 0 30px rgba(231, 76, 60, 0.6));
+            transition: all 0.5s ease;
+        }
+
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 16;
+            pointer-events: none;
+            background: rgba(0,0,0,0.4);
+            padding: 12px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .letter-instruction {
+            color: white;
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        /* Animación de apertura del corazón */
+        .heart-opening {
+            animation: heartOpen 1.5s ease-out forwards !important;
+        }
+
+        @keyframes heartOpen {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 50px rgba(231, 76, 60, 1));
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+        }
+
+        /* Carta saliendo del corazón */
+        .letter-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 25000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .letter {
+            background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+            width: 100%;
+            max-width: 700px;
+            max-height: 85vh;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 192, 203, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            font-family: 'Crimson Text', serif;
+            line-height: 1.8;
+            color: #333;
+            position: relative;
+            overflow-y: auto;
+            animation: letterFromHeart 1.5s ease-out;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 50%);
+        }
+
+        @keyframes letterFromHeart {
+            0% {
+                opacity: 0;
+                transform: scale(0.1) rotate(180deg);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(0.7) rotate(90deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: blur(0px);
+            }
+        }
+
+        /* Decoración de esquinas */
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b9d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            opacity: 0.3;
+        }
+
+        .letter::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b9d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            opacity: 0.3;
+        }
+
+        /* Título de la carta */
+        .letter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2);
+            position: relative;
+        }
+
+        .letter-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d63384, transparent);
+            border-radius: 2px;
+        }
+
+        /* Contenido de la carta */
+        .letter-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        .letter-content .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #d63384;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .letter-content p {
+            margin-bottom: 25px;
+            text-indent: 2em;
+            position: relative;
+        }
+
+        .letter-content p:first-of-type {
+            font-weight: 600;
+            color: #333;
+            text-indent: 0;
+        }
+
+        /* Firma */
+        .letter-signature {
+            text-align: right;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .letter-signature::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d63384);
+            border-radius: 1px;
+        }
+
+        .signature-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #d63384;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .signature-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #d63384;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(214, 51, 132, 0.3);
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .close-letter:hover {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+        }
+
+        /* Efectos de animación en la carta */
+        .letter {
+            animation: letterAppear 1.5s ease-out;
+        }
+
+        @keyframes letterAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Efectos de texto */
+        .letter-content p {
+            animation: textFadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .letter-content p:nth-child(2) { animation-delay: 0.2s; }
+        .letter-content p:nth-child(3) { animation-delay: 0.4s; }
+        .letter-content p:nth-child(4) { animation-delay: 0.6s; }
+        .letter-content p:nth-child(5) { animation-delay: 0.8s; }
+        .letter-content p:nth-child(6) { animation-delay: 1.0s; }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .letter {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            .letter-title {
+                font-size: 2.2rem;
+            }
+            
+            .letter-content {
+                font-size: 1.1rem;
+                text-align: left;
+            }
+            
+            .letter-content p {
+                text-indent: 1em;
+            }
+            
+            .signature-name {
+                font-size: 1.8rem;
+            }
+            
+            .heart-image {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .heart-text {
+                font-size: 1rem;
+                padding: 10px 16px;
+            }
+            
+            .letter-instruction {
+                font-size: 1.3rem;
+            }
+            
+            .letter-page-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter {
+                padding: 30px 20px;
+            }
+            
+            .letter-title {
+                font-size: 1.8rem;
+            }
+            
+            .letter-content {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrellas de fondo -->
+    <div class="stars"></div>
+    
+    <!-- Flores decorativas -->
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌹</div>
+    <div class="flower">💐</div>
+    <div class="flower">🌻</div>
+
+    <!-- Lluvia de corazones -->
+    <div class="heart-rain" id="heartRain"></div>
+
+    <!-- Overlay de transición -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="success-message">
+            💕 ¡Bienvenida mi amor! 💕<br>
+            <div style="font-size: 1.2rem; margin-top: 1rem;">Preparando el detallito...</div>
+        </div>
+    </div>
+
+    <!-- Página de la carta -->
+    <div class="love-letter-page" id="loveLetterPage">
+        <div class="stars"></div>
+        
+        <!-- Flores decorativas para esta página -->
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌹</div>
+        <div class="flower">💐</div>
+        <div class="flower">🌻</div>
+        
+        <!-- Título movido arriba -->
+        <div class="letter-page-title">💕 Con mucho amor para mi Maryam 💕</div>
+        
+        <div class="interactive-heart" onclick="openLetter()">
+            <div class="heart-image">❤️</div>
+            <div class="heart-text">PRESIONA<br>AQUÍ</div>
+        </div>
+        <div class="letter-instruction">Toca el corazón</div>
+    </div>
+
+    <!-- Contenedor de la carta -->
+    <div class="letter-container" id="letterContainer">
+        <div class="letter">
+            <button class="close-letter" onclick="closeLetter()">×</button>
+            <div class="letter-title">Para mi Zamba bonita ❤️</div>
+            <div class="letter-content">
+                <div class="greeting">Zamba,</div>
+                
+                <p>No sabes lo difícil que es escribirte esto sabiendo que pronto vas a irte del país. Aunque me alegra mucho ya que encontrarás mejores oportunidades, también me duele saber que no voy a tenerte cerca, que no podré verte, abrazarte o hacerte reír como siempre.</p>
+                
+                <p>Me encanta cómo eres, lo divertida que haces cada momento, incluso cuando solo estamos molestándonos el uno al otro por tonterías. Disfruto tanto cuando me abrazas, cuando me dejas estar encima de ti solo para quedarnos así, sin decir nada, como si el tiempo se detuviera un rato.</p>
+                
+                <p>Estos últimos días contigo están siendo de los más bonitos que he vivido. Cada momento juntos lo estoy guardando en mi memoria con cariño, porque sé que me va a tocar recordarlos cuando te extrañe (que va a ser seguido, la verdad).</p>
+                
+                <p>Gracias por ser tú, por dejarme estar contigo, por hacerme sentir especial. No importa la distancia, siempre vas a tener un espacio enorme en mí. Te quiero mucho, y aunque te vayas, yo voy a seguir aquí, esperándote con una sonrisa cuando vuelvas.</p>
+            </div>
+            
+            <div class="letter-signature">
+                <div class="signature-text">Con cariño,</div>
+                <div class="signature-name">Tu panzón</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="loginContainer">
+        <h1 class="title">Inicia sesión para abrir el corazón :b</h1>
+        
+        <div class="login-form">
+            <h2>💕 Para mi Zamba 💕</h2>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Escribe la palabra mágica..." maxlength="20">
+            </div>
+            <button class="login-btn" onclick="checkPassword()">Abrir mi corazón ❤️</button>
+            <div class="error-message" id="error">¡Esa no es la palabra mágica, mi amor! 💔</div>
+        </div>
+    </div>
+
+    <script>
+        // Crear estrellas
+        function createStars() {
+            const starsContainers = document.querySelectorAll('.stars');
+            starsContainers.forEach(starsContainer => {
+                starsContainer.innerHTML = '';
+                for (let i = 0; i < 100; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 3 + 's';
+                    starsContainer.appendChild(star);
+                }
+            });
+        }
+
+        // Crear lluvia de corazones
+        function createHeartRain() {
+            const heartRain = document.getElementById('heartRain');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💙', '💚', '💛', '💜', '🧡'];
+            
+            function createFallingHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'falling-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartRain.appendChild(heart);
+                
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                }, 5000);
+            }
+            
+            // Crear muchos corazones
+            for (let i = 0; i < 50; i++) {
+                setTimeout(createFallingHeart, i * 100);
+            }
+            
+            // Continuar creando corazones
+            const interval = setInterval(createFallingHeart, 150);
+            
+            // Detener después de 5 segundos
+            setTimeout(() => {
+                clearInterval(interval);
+                setTimeout(() => {
+                    heartRain.innerHTML = '';
+                }, 3000);
+            }, 5000);
+        }
+
+        // Verificar contraseña
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error');
+            const transitionOverlay = document.getElementById('transitionOverlay');
+            
+            if (password.toLowerCase() === 'zamba') {
+                // Mostrar overlay de transición
+                transitionOverlay.style.display = 'flex';
+                
+                // Iniciar lluvia de corazones
+                createHeartRain();
+                
+                // Simular carga y transición
+                setTimeout(() => {
+                    // Transición a la página de la carta
+                    showLoveLetter();
+                }, 6000);
+                
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Mostrar la carta y ocultar login
+        function showLoveLetter() {
+            document.getElementById('transitionOverlay').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('loveLetterPage').style.display = 'flex';
+            createStars();
+        }
+
+        // Abrir carta (al tocar el corazón)
+        function openLetter() {
+            document.getElementById('loveLetterPage').style.display = 'none';
+            document.getElementById('letterContainer').style.display = 'flex';
+        }
+
+        // Cerrar carta
+        function closeLetter() {
+            document.getElementById('letterContainer').style.display = 'none';
+            document.getElementById('loveLetterPage').style.display = 'flex';
+        }
+
+        // Inicializar estrellas al cargar
+        window.onload = createStars;
+    </script>
+
+    <style>
+        @keyframes fallDown {
+            0% {
+                top: -10%;
+                opacity: 0;
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 110%;
+                transform: translateY(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .letter-page-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .interactive-heart {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(231,76,60,0.4);
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 10;
+        }
+
+        .interactive-heart:hover {
+            transform: scale(1.1);
+        }
+
+        .heart-text {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .letter-instruction {
+            margin-top: 1.5rem;
+            color: white;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .letter-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .letter {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .letter-title {
+            font-size: 2rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .letter-content {
+            font-size: 1.2rem;
+            text-align: justify;
+        }
+
+        .letter-signature {
+            margin-top: 2rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .signature-name {
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #c0392b;
+            cursor: pointer;
+        }
+
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .success-message {
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .love-letter-page {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(145deg, #e96443, #904e95);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+    </style>
+</body>
+</html>
